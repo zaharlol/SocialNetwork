@@ -19,20 +19,22 @@ namespace SocialNetwork.PLL.Views
         {
             while (true)
             {
+                Console.WriteLine("Количество друзей: {0}", user.AddFriends.Count());
                 Console.WriteLine("Входящие сообщения: {0}", user.IncomingMessages.Count());
                 Console.WriteLine("Исходящие сообщения: {0}", user.OutgoingMessages.Count());
 
                 Console.WriteLine("Просмотреть информацию о моём профиле (нажмите 1)");
                 Console.WriteLine("Редактировать мой профиль (нажмите 2)");
                 Console.WriteLine("Добавить в друзья (нажмите 3)");
-                Console.WriteLine("Написать сообщение (нажмите 4)");
-                Console.WriteLine("Просмотреть входящие сообщения (нажмите 5)");
-                Console.WriteLine("Просмотреть исходящие сообщения (нажмите 6)");
-                Console.WriteLine("Выйти из профиля (нажмите 7)");
+                Console.WriteLine("Список друзей (нажмите 4)");
+                Console.WriteLine("Написать сообщение (нажмите 5)");
+                Console.WriteLine("Просмотреть входящие сообщения (нажмите 6)");
+                Console.WriteLine("Просмотреть исходящие сообщения (нажмите 7)");
+                Console.WriteLine("Выйти из профиля (нажмите 8)");
 
                 string keyValue = Console.ReadLine();
 
-                if (keyValue == "7") break;
+                if (keyValue == "8") break;
 
                 switch (keyValue)
                 {
@@ -47,20 +49,32 @@ namespace SocialNetwork.PLL.Views
                             break;
                         }
 
+                    case "3":
+                        {
+                            Program.addFriendsView.Show(user);
+                            break;
+                        }
+
                     case "4":
+                        {
+                            Program.quantityFriendsView.Show(user.AddFriends);
+                            break;
+                        }
+
+                    case "5":
                         {
                             Program.messageSendingView.Show(user);
                             break;
                         }
 
-                    case "5":
+                    case "6":
                         {
 
                             Program.userIncomingMessageView.Show(user.IncomingMessages);
                             break;
                         }
 
-                    case "6":
+                    case "7":
                         {
                             Program.userOutcomingMessageView.Show(user.OutgoingMessages);
                             break;
